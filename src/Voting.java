@@ -31,7 +31,7 @@ public class Voting {
         return availableChoices;
     }
 
-    public void creatChoice(String choice){
+    public void createChoice(String choice){
         this.choices.put(choice, null);
     }
 
