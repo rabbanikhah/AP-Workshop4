@@ -30,5 +30,13 @@ public class VotingSystem {
     public int hashCode() {
         return Objects.hashCode(getVotingList());
     }
+
+    public void createVoting(String question,boolean isAnonymous,int type,ArrayList<String> choices){
+        Voting newVoting = new Voting(type, question, isAnonymous);
+        for (String i: choices){
+            newVoting.createChoice(i);
+        }
+        votingList.add(newVoting);
+    }
 }
 
