@@ -38,5 +38,18 @@ public class VotingSystem {
         }
         votingList.add(newVoting);
     }
+
+    public void vote (int index, Person voter){ // random voting
+        Random random = new Random();
+        int choiceCount= random.nextInt(getVoting(index).getChoices().size()); // random choices' count
+        ArrayList<String> votingChoices = getVoting(index).getChoices();
+        ArrayList<String> voterRandomChoices = new ArrayList<>();
+        for (int i = 0; i < choiceCount; i ++){
+            int choiceIndex = random.nextInt(votingChoices.size()); // choose a random choice
+            voterRandomChoices.add(votingChoices.get(choiceIndex));
+            votingChoices.remove(choiceIndex);
+        }
+        getVoting(index).vote(voter, voterRandomChoices);
+    }
 }
 
