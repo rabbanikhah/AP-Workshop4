@@ -44,4 +44,23 @@ public class Voting {
         Voting voting = (Voting) o;
         return isAnonymous == voting.isAnonymous;
     }
+
+    public void vote(Person voter,ArrayList<String> voter_choices){
+        if (isAnonymous){
+            return;
+        }
+        Vote newVote = new Vote(voter,null);
+        for (String i: choices.keySet()){
+            //iteration over voter's choices
+            for (String j:voter_choices){
+                //checking if the choices we have in the field equals to the voters choice and adding a new vote to the values of the hashmap(it was set to null in the beginning)
+                if (i.equals(j)){
+                    choices.get(i).add(newVote);
+                }
+            }
+        }
+        if (!voters.contains(voter)){
+            voters.add(voter);
+        }
+    }
 }
