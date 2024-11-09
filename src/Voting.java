@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class Voting {
     // field and attribute
@@ -61,6 +59,31 @@ public class Voting {
         }
         if (!voters.contains(voter)){
             voters.add(voter);
+        }
+    }
+
+    public void vote(Person person){
+        if (!isAnonymous){
+            return;
+        }
+        Vote newVote = new Vote(person,null);
+        Random random = new Random();
+        // a random number for random voting
+        int randomNum = random.nextInt(choices.size());
+        int counter = 0;
+        for(String i : choices.keySet()){
+            // adding the person to the hashmap based on the random number
+            counter++;
+            if (counter<randomNum){
+                continue;
+            }
+            else {
+                choices.get(i).add(newVote);
+                break;
+            }
+        }
+        if (!voters.contains(person)){
+            voters.add(person);
         }
     }
 }
