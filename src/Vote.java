@@ -27,4 +27,9 @@ public class Vote {
         Vote vote = (Vote) o;
         return Objects.equals(getVoter(), vote.getVoter()) && Objects.equals(getDate(), vote.getDate());
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getVoter(), getDate());
+    }
 }
