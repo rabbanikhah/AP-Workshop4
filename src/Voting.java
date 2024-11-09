@@ -86,4 +86,10 @@ public class Voting {
             voters.add(person);
         }
     }
+
+    public void printResults(){
+        for (String i: choices.keySet()){
+            System.out.println("Choice:" + i + "\tNumber of votes:" + choices.get(i).size());
+        }
+    }
 }
