@@ -36,4 +36,12 @@ public class Voting {
     public void creatChoice(String choice){
         this.choices.put(choice, null);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Voting voting = (Voting) o;
+        return isAnonymous == voting.isAnonymous;
+    }
 }
