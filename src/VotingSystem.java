@@ -51,5 +51,22 @@ public class VotingSystem {
         }
         getVoting(index).vote(voter, voterRandomChoices);
     }
+
+    public void printResults (int index){
+        getVoting(index).printResults();
+    }
+    public void printVoters(int index){
+        getVoting(index).printVoters();
+    }
+    public void printVoting(int index){
+        String question = votingList.get(index).getQuestion();
+        ArrayList<String> choices = votingList.get(index).getChoices();
+        int choiceCounter = 1;
+        System.out.println("Question : " + question);
+        for (String s : choices){
+            System.out.printf("%d-%s  ", choiceCounter, s );
+        }
+        System.out.println();
+    }
 }
 
