@@ -92,4 +92,16 @@ public class Voting {
             System.out.println("Choice:" + i + "\tNumber of votes:" + choices.get(i).size());
         }
     }
+
+    public void printVoters(){
+        if (isAnonymous){
+            return;
+        }
+        for (String i : choices.keySet()) {
+            System.out.printf("Choice: %s\tVoters: ", i);
+            for (Vote j : choices.get(i)) {
+                System.out.println(j.getVoter().getFirstName() + " " + j.getVoter().getLastName());
+            }
+        }
+    }
 }
