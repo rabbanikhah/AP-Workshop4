@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Vote {
     // field and attribute
     private final Person voter;
@@ -16,5 +18,13 @@ public class Vote {
 
     public String getDate() {
         return date;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vote vote = (Vote) o;
+        return Objects.equals(getVoter(), vote.getVoter()) && Objects.equals(getDate(), vote.getDate());
     }
 }
